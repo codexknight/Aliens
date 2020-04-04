@@ -1,25 +1,27 @@
 import sys
 import pygame
-
-
-def run_game():
-
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-
-        pygame.display.flip()
-
+from settings import Settings
 
 class AlienInvasion:
 
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((1200, 800))
+        self.settings=Settings()
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("Aliens Invasion")
+
+
+    def run_game(self):
+
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    sys.exit()
+
+            self.screen.fill(self.settings.bg_color)
+            pygame.display.flip()
 
 
 if __name__ == '__main__':
     ai = AlienInvasion()
-    run_game()
+    ai.run_game()
