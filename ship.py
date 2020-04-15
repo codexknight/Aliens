@@ -20,13 +20,13 @@ class Ship:
         self.moving_left = False
 
     def update(self):
-        if self.moving_right and self.image_rect.right<self.screen_rect.right:
+        if self.moving_right and self.image_rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
 
-        if self.moving_left and self.image_rect.left>self.screen_rect.left:
+        if self.moving_left and self.image_rect.left > self.screen_rect.left:
             self.x -= self.settings.ship_speed
 
-        self.image_rect.x=self.x
+        self.image_rect.x = self.x
 
     def blitme(self):
         self.screen.blit(self.image, self.image_rect)
